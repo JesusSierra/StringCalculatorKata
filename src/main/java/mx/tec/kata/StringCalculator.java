@@ -7,11 +7,12 @@ public class StringCalculator {
 		if (numbers.isBlank()) {
 			return 0;
 		}else {
+			String sanitizedNumbers = numbers;
 			if (numbers.startsWith("//")) {
 				delimiter = numbers.substring(2,3);
-				numbers = numbers.substring(4);
+				sanitizedNumbers = numbers.substring(4);
 			}
-			String[] splitNumbers = numbers.split("\\n|" + delimiter);
+			String[] splitNumbers = sanitizedNumbers.split("\\n|" + delimiter);
 			int sum = 0;
 			for (String numString: splitNumbers) {
 				sum += Integer.parseInt(numString);
